@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: bank-system
+  jpa:
+    open-in-view: off
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+        order_inserts: on
+        order_updates: on
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${env.DB_HOST}:${env.DB_PORT}/${env.DB_SCHEMA}
+    username: ${env.DB_USERNAME}
+    password: ${env.DB_PASSWORD}
+    hikari:
+      pool-name: 'bank Pool'
+      maximum-pool-size: ${env.DB_MAXIMUM_POOL_SIZE}
+logging:
+  level:
+    sql: debug
+    com.banksystem: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    image: 'mysql:8.0'
+    container_name: bank-db
+    command: --sql_mode="STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION"
+    environment:
+      MYSQL_DATABASE: bank
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
